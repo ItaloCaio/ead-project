@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example that shows off a responsive email layout.">
+    <title>Vamos Contar!</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    
+    <style type="text/css">
+       
+     #option:hover {
+      background:#A9A9F5;
+
+
+     }
+     #a:hover{    
+        background: #A9A9F5;
+       
+      } 
+      #a{
+         padding-right: 300px;
+      }
+      #b:hover{    
+        background: #A9A9F5;
+       
+      } 
+      #b{    
+       
+        padding-right: 300px;
+      } 
+      #c:hover{    
+        background: #A9A9F5;
+        padding-right: 300px;
+      } 
+      #c{    
+        padding-right: 300px;
+      } 
+      #d:hover{    
+        background: #A9A9F5;
+        
+      } 
+      #d{    
+        
+        padding-right: 300px;
+      } 
+
+     #errado:hover {
+      background:red;
+      padding-left: 40px;
+
+     }
+     .displayed{
+      padding-left: 40px;
+         }
+
+      
+    
+    </style>
+     
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="../css/layouts/email.css">
+            <link rel="stylesheet" href="../css/layouts/gallery.css">
+            <link href="../css/dashboard.css" rel="stylesheet">
+        <!--<![endif]-->
+</head>
+<body>
+
+
+
+<div   class="pure-u-1" > 
+
+
+<div id="layout" class="content pure-g">
+
+    <div id="nav" class="pure-u">
+        <a href="#" class="nav-menu-button">Menu</a>
+
+        <div class="nav-inner">
+           
+
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                  
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Turmas</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Nova turma</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Atividades</a></li>
+                     <li class="pure-menu-heading">inscrito</li>
+
+                     <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Turma A</a></li>
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Turma B</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+<div  class="pure-u-1" > 
+   <!-- BootStrap !-->
+     <div class="container-fluid" align="center">
+       
+      <div id="question">
+       
+       
+       </div>
+
+        </div>
+    
+
+  
+</div>
+    
+
+
+
+
+</div>
+
+       
+
+
+    
+
+
+
+
+
+</body>
+<script type="text/javascript" src="../js/jquery-slim.min.js"></script>
+
+<script type="text/javascript">
+  
+ var question_div = document.getElementById("question");
+ 
+
+ var score = 0;
+ 
+
+  const myQuestions = [
+    {
+      question: "A Peppa tem 2 amigas e ela fez mais 2. Quantas amigas ela tem agora?",
+      answers: {
+        a: "4",
+        b: "2",
+        c: "1",
+        d: "3"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "O Jorge está brincando com a Peppa e o seu pai. Com quantas pessoas ele está brincando?",
+      answers: {
+        a: "5",
+        b: "3",
+        c: "1",
+        d: "2"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "O papai pig está precisando de 5 ajudantes, ele já tem a Peppa e o Jorge. De mais quantos ele precisa?",
+      answers: {
+        a: "5",
+        b: "2",
+        c: "3",
+        d: "6"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "A Peppa vai ao parque com seu pai, o Jorge e mais 3 amigos. Com quantas pessoas ela vai ao parque?",
+      answers: {
+        a: "5",
+        b: "1",
+        c: "4",
+        d: "3"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "A fada Peppa lançou um feitiço e fez mais 3 cópias de si mesma. Com 3 cópias que ela havia feito antes, quantas cópias ela fez?",
+      answers: {
+        a: "3",
+        b: "2",
+        c: "5",
+        d: "6"
+      },
+      correctAnswer: "d"
+    }
+  ];
+
+//cria as questões
+     function createQuestion(value){
+
+        question_div.innerHTML= ' ';
+
+        var letters = [];
+           var i = 0;
+        
+        // Define as alternativas
+        for (letter in myQuestions[value].answers) {
+                  
+                  questionNumber = value +1;
+                  answer = myQuestions[value].answers[letter].toString();
+                  
+
+                  
+
+                  letters[i] =  `
+                 
+                    <div class="col-sm-3 placeholder" id="`+ letter +`">
+                        <div class="displayed" >
+                      <img src="../img/fases/peppa/` + questionNumber + `/` + answer +`.png" width="200" height="200" value="`+ letter +`" id="answer" class="img-responsive" " alt="Generic placeholder thumbnail" >
+                          <h4 > `+ myQuestions[value].answers[letter] + `</h4>
+                     
+                        </div>
+                      </div>
+                ` ;
+                i++;
+
+            } 
+
+        twoFirtsLetters = `<div class="row placeholders"  > ` + letters[0] + letters[1] + `</div>`;
+
+        twoLastLetters = `<div class="row placeholders"  > ` + letters[2] + letters[3] + `</div>`;
+
+
+        //junta as views
+        question_div.innerHTML += `<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main' align='center'>
+          
+                                       <h1 class=" page-header">`+ myQuestions[value].question + `</h1>
+                                       <div id='game' >` + twoFirtsLetters + twoLastLetters;
+             
+       
+
+    } 
+
+//proxima questão
+function next(value){
+
+  value += 1;
+            if(value < myQuestions.length){
+              play(value);
+            }
+            else
+              {
+                if(score >=3){
+                  question_div.innerHTML = `
+                  <div class="displayed">
+                     <img src="../img/fases/end-scream/parabens.png" >
+                  </div>
+                  `;
+                  $( "img" ).click(function() { location.href="fases.html"; });
+
+                }else{
+                 question_div.innerHTML = `
+                  <div class="displayed">
+                     <img src="../img/fases/end-scream/tente-novamente.png" >
+                  </div>
+                  `;
+
+                  $( "img" ).click(function() { location.href="fase.html"; });
+                }
+              }
+
+}
+
+  //Inicia o jogo
+     function play(value){
+
+      
+      // Exibe as questões
+        createQuestion(value);
+
+          //vai para a proxima questão e marca o resultado
+          $( "img" ).click(function() {
+
+             var letter =  $(this).attr("value");
+
+          
+
+             if(letter == myQuestions[value].correctAnswer){
+              score += 1;
+              console.log("score é:" +score);
+              document.getElementById(letter).style.backgroundColor = "green";
+
+              setTimeout(function(){  
+                 
+                   next(value);
+
+              }, 2000);
+               
+
+                
+             }
+            else{
+             document.getElementById(letter).style.backgroundColor = "red";
+
+             document.getElementById(myQuestions[value].correctAnswer).style.backgroundColor = "green";
+             
+             document.getElementById(myQuestions[value].correctAnswer).style.pointerEvents = "none";
+              setTimeout(function(){ 
+                   next(value);
+
+              }, 1000);
+              
+               }
+
+          
+            
+
+            });
+         
+        
+    }   
+
+     
+    play(0);  
+
+
+    
+
+</script>
+</html>
