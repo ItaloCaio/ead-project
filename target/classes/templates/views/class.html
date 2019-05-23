@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="A layout example that shows off a responsive email layout." name="description"/>
+    <title>Turma</title>
+
+    <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          rel="stylesheet"/>
+
+
+    <link href="../css/email.css" rel="stylesheet"/>
+
+</head>
+<body>
+
+
+<div class="content pure-g" id="layout">
+    <div class="pure-u" id="nav">
+        <a class="nav-menu-button" href="#">Menu</a>
+
+        <div class="nav-inner">
+
+
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                            class="email-label-personal"></span>Turmas</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span class="email-label-work"></span>Nova
+                        turma</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                            class="email-label-travel"></span>Atividades</a></li>
+                    <li class="pure-menu-heading">inscrito</li>
+
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                            class="email-label-personal"></span>Turma A</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span class="email-label-work"></span>Turma
+                        B</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="pure-u-1" id="main">
+
+        <form class="pure-form">
+
+            <fieldset class="pure-group">
+
+                <input class="pure-u-1" placeholder="Comparilhe algo" type="text"/>
+            </fieldset>
+            <fieldset align="right">
+                <button class="pure-button pure-u-1-4 pure-button-primary" type="submit">Enviar</button>
+                <button class="pure-button pure-u-1-4 pure-button-error">Cancelar</button>
+            </fieldset>
+        </form>
+
+
+        <div class="email-item email-item-selected pure-g">
+            <div class="pure-u">
+                <img alt="Tilo Mitra&#x27;s avatar" class="email-avatar" height="64" src="images/common/tilo-avatar.png"
+                     width="64"/>
+            </div>
+
+            <div class="pure-u-1-2">
+                <h5 class="email-name">Tilo Mitra</h5>
+                <h4 class="email-subject">Dúvida Atividade 1</h4>
+                <p class="email-desc">
+                    Estou com uma dúvida na questão 2.
+                </p>
+            </div>
+        </div>
+        <br/>
+
+    </div>
+
+</div>
+
+
+</body>
+</html>

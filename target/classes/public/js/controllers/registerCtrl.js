@@ -3,10 +3,10 @@ console.log("fez a conexao");
 
 angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $http) {
 
-    urlCadastro = 'http://localhost:8080/student/';
-    urlUser = 'http://localhost:8080/student/user/';
+    urlCadastro = 'http://localhost:8080/user';
+    urlUser = 'http://localhost:8080/user/on';
+    $scope.userLogado = null;
 
-    
     $scope.users = ['ALUNO', 'PROFESSOR', 'TUTOR'];
 
     $scope.listarUsuarios = function () {
@@ -29,7 +29,6 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
 
         function successCallback(response) {
             $scope.userLogado = response.data;
-            console.log("entrou " , userLogado.username);
         }
 
         function errorCallback(error) {
@@ -42,18 +41,16 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
     };
 
 
-
     $scope.limparCampos = function () {
         $scope.usuario = "";
     };
 
 
     $scope.salvar = function (user) {
-
         if (user.type == 'Aluno') {
-             user.type = user.type.toUpperCase();
+            user.type = user.type.toUpperCase();
             $http.post(urlCadastro, user).then(function (response) {
-                console.log("salvou");
+                console.log("salvou", user);
                 delete $scope.user;
             });
 

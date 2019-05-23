@@ -22,35 +22,29 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) {
         try {
             http.authorizeRequests()
-                    .antMatchers(HttpMethod.GET,"/").permitAll()
-                    .antMatchers(HttpMethod.POST, "/student/").permitAll()
+                    .antMatchers(HttpMethod.GET, "/").permitAll()
+                    .antMatchers(HttpMethod.GET, "/cadastro").permitAll()
+                    .antMatchers(HttpMethod.POST, "/user").permitAll()
                     .anyRequest()
                     .authenticated()
                     .and().formLogin().permitAll()
-                    .and().
-                    httpBasic()
+                    .and()
+                    .httpBasic()
                     .and().csrf().disable();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    /*
-    @Autowired
-    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("user")
-                .password("123").roles()
-                .and()
-                .withUser("admin").password("123")
-                .roles("USER", "ADMIN");
-    } /*/
-
     @Override
     public void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(customUserDetailsService).passwordEncoder(new BCryptPasswordEncoder());
     }
+
     @Override
-    public void configure(WebSecurity web) throws Exception{
+    public void configure(WebSecurity web) throws Exception {
         web.ignoring().antMatchers("/js/**", "/css/**");
     }
+
+
 }

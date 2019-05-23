@@ -5,15 +5,18 @@ import br.com.eadsimple.model.AbstractEntity;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class Question extends AbstractEntity {
 
     private String question;
-    private String a, b, c, d;
     private String corretAnswer;
+    @OneToMany(mappedBy = "question")
+    private List<Answers> answers;
     @ManyToOne
-    @JoinColumn(name="level_id", referencedColumnName="id")
+    @JoinColumn(name = "level_id", referencedColumnName = "id")
     private Level level;
 
     public String getQuestion() {
@@ -24,37 +27,6 @@ public class Question extends AbstractEntity {
         this.question = question;
     }
 
-    public String getA() {
-        return a;
-    }
-
-    public void setA(String a) {
-        this.a = a;
-    }
-
-    public String getB() {
-        return b;
-    }
-
-    public void setB(String b) {
-        this.b = b;
-    }
-
-    public String getC() {
-        return c;
-    }
-
-    public void setC(String c) {
-        this.c = c;
-    }
-
-    public String getD() {
-        return d;
-    }
-
-    public void setD(String d) {
-        this.d = d;
-    }
 
     public String getCorretAnswer() {
         return corretAnswer;
@@ -64,12 +36,20 @@ public class Question extends AbstractEntity {
         this.corretAnswer = corretAnswer;
     }
 
-    public Level getLevel() {
+    private Level getLevel() {
         return level;
     }
 
-    public void setLevel(Level level) {
+    private void setLevel(Level level) {
         this.level = level;
+    }
+
+    public List<Answers> getAnswers() {
+        return answers;
+    }
+
+    public void setAnswers(List<Answers> answers) {
+        this.answers = answers;
     }
 }
 

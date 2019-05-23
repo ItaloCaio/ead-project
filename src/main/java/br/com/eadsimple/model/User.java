@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @Entity
 public class User extends AbstractEntity {
@@ -13,12 +15,13 @@ public class User extends AbstractEntity {
     @Column(unique = true)
     private String username;
     @NotEmpty
-    @JsonIgnore
     private String password;
     @NotEmpty
     private String name;
     @NotEmpty
     private String type;
+    @OneToMany(mappedBy = "professor")
+    private List<Class> classList;
 
     public String getUsername() {
         return username;
@@ -50,5 +53,13 @@ public class User extends AbstractEntity {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    private List<Class> getClassList() {
+        return classList;
+    }
+
+    private void setClassList(List<Class> classList) {
+        this.classList = classList;
     }
 }

@@ -1,227 +1,222 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" ng-app="appOperacionar">
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example that shows off a responsive email layout.">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="A layout example that shows off a responsive email layout." name="description">
     <title>Vamos Contar!</title>
-    
-    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    
+
+    <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          rel="stylesheet">
+
     <style type="text/css">
-       
-     #option:hover {
-      background:#A9A9F5;
+
+        #option:hover {
+            background: #A9A9F5;
 
 
-     }
-     #a:hover{    
-        background: #A9A9F5;
-       
-      } 
-      #a{
-         padding-right: 300px;
-      }
-      #b:hover{    
-        background: #A9A9F5;
-       
-      } 
-      #b{    
-       
-        padding-right: 300px;
-      } 
-      #c:hover{    
-        background: #A9A9F5;
-        padding-right: 300px;
-      } 
-      #c{    
-        padding-right: 300px;
-      } 
-      #d:hover{    
-        background: #A9A9F5;
-        
-      } 
-      #d{    
-        
-        padding-right: 300px;
-      } 
+        }
 
-     #errado:hover {
-      background:red;
-      padding-left: 40px;
+        #a:hover {
+            background: #A9A9F5;
 
-     }
-     .displayed{
-      padding-left: 40px;
-         }
+        }
 
-      
-    
+        #a {
+            padding-right: 300px;
+        }
+
+        #b:hover {
+            background: #A9A9F5;
+
+        }
+
+        #b {
+
+            padding-right: 300px;
+        }
+
+        #c:hover {
+            background: #A9A9F5;
+            padding-right: 300px;
+        }
+
+        #c {
+            padding-right: 300px;
+        }
+
+        #d:hover {
+            background: #A9A9F5;
+
+        }
+
+        #d {
+
+            padding-right: 300px;
+        }
+
+        #errado:hover {
+            background: red;
+            padding-left: 40px;
+
+        }
+
+        .displayed {
+            padding-left: 40px;
+        }
+
+
     </style>
-     
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!--[if lte IE 8]>
-            <link rel="stylesheet" href="css/layouts/email-old-ie.css">
-        <![endif]-->
-        <!--[if gt IE 8]><!-->
-            <link rel="stylesheet" href="../css/layouts/email.css">
-            <link rel="stylesheet" href="../css/layouts/gallery.css">
-            <link href="../css/dashboard.css" rel="stylesheet">
-        <!--<![endif]-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link href="../../css/email.css" rel="stylesheet">
+    <link href="../../css/gallery.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <script src="../../js/angular.min.js" type="text/javascript"></script>
+    <script src="../../js/controllers/operacionarCtrl.js"></script>
 </head>
-<body>
+<body ng-controller="appOperacionarCtrl">
 
 
+<div class="pure-u-1">
 
-<div   class="pure-u-1" > 
+
+    <div class="content pure-g" id="layout">
+
+        <div class="pure-u" id="nav">
+            <a class="nav-menu-button" href="#">Menu</a>
+
+            <div class="nav-inner">
 
 
-<div id="layout" class="content pure-g">
+                <div class="pure-menu">
+                    <ul class="pure-menu-list">
 
-    <div id="nav" class="pure-u">
-        <a href="#" class="nav-menu-button">Menu</a>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                                class="email-label-personal"></span>Turmas</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                                class="email-label-work"></span>Nova turma</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                                class="email-label-travel"></span>Atividades</a></li>
+                        <li class="pure-menu-heading">inscrito</li>
 
-        <div class="nav-inner">
-           
-
-            <div class="pure-menu">
-                <ul class="pure-menu-list">
-                  
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Turmas</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Nova turma</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-travel"></span>Atividades</a></li>
-                     <li class="pure-menu-heading">inscrito</li>
-
-                     <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-personal"></span>Turma A</a></li>
-                    <li class="pure-menu-item"><a href="#" class="pure-menu-link"><span class="email-label-work"></span>Turma B</a></li>
-                </ul>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                                class="email-label-personal"></span>Turma A</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                                class="email-label-work"></span>Turma B</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1">
+            <!-- BootStrap !-->
+            <div align="center" class="container-fluid">
+                <div id="question">
+                </div>
             </div>
         </div>
     </div>
-<div  class="pure-u-1" > 
-   <!-- BootStrap !-->
-     <div class="container-fluid" align="center">
-       
-      <div id="question">
-       
-       
-       </div>
-
-        </div>
-    
-
-  
-</div>
-    
-
-
-
-
-</div>
-
-       
-
-
-    
-
-
-
 
 
 </body>
-<script type="text/javascript" src="../js/jquery-slim.min.js"></script>
+<script src="../../js/jquery-slim.min.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-  
- var question_div = document.getElementById("question");
- 
+<script>
+    var teste = testLevel;
+    console.log(teste);
+    var question_div = document.getElementById("question");
 
- var score = 0;
- 
 
-  const myQuestions = [
-    {
-      question: "A Peppa tem 2 amigas e ela fez mais 2. Quantas amigas ela tem agora?",
-      answers: {
-        a: "4",
-        b: "2",
-        c: "1",
-        d: "3"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "O Jorge está brincando com a Peppa e o seu pai. Com quantas pessoas ele está brincando?",
-      answers: {
-        a: "5",
-        b: "3",
-        c: "1",
-        d: "2"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "O papai pig está precisando de 5 ajudantes, ele já tem a Peppa e o Jorge. De mais quantos ele precisa?",
-      answers: {
-        a: "5",
-        b: "2",
-        c: "3",
-        d: "6"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "A Peppa vai ao parque com seu pai, o Jorge e mais 3 amigos. Com quantas pessoas ela vai ao parque?",
-      answers: {
-        a: "5",
-        b: "1",
-        c: "4",
-        d: "3"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "A fada Peppa lançou um feitiço e fez mais 3 cópias de si mesma. Com 3 cópias que ela havia feito antes, quantas cópias ela fez?",
-      answers: {
-        a: "3",
-        b: "2",
-        c: "5",
-        d: "6"
-      },
-      correctAnswer: "d"
-    }
-  ];
+    var score = 0;
 
-//cria as questões
-     function createQuestion(value){
 
-        question_div.innerHTML= ' ';
+    const myQuestions = [
+        {
+            question: "A Peppa tem 2 amigas e ela fez mais 2. Quantas amigas ela tem agora?",
+            answers: {
+                a: "4",
+                b: "2",
+                c: "1",
+                d: "3"
+            },
+            correctAnswer: "a"
+        },
+        {
+            question: "O Jorge está brincando com a Peppa e o seu pai. Com quantas pessoas ele está brincando?",
+            answers: {
+                a: "5",
+                b: "3",
+                c: "1",
+                d: "2"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "O papai pig tem 2 ajudantes e ganhou mais um. Com quantos ajudantes ele ficou?",
+            answers: {
+                a: "5",
+                b: "2",
+                c: "3",
+                d: "6"
+            },
+            correctAnswer: "c"
+        },
+        {
+            question: "O Jorge vai ao parque com o seu pai e mais 3 amigos. Quantas pessoas vão ao parque?",
+            answers: {
+                a: "5",
+                b: "1",
+                c: "4",
+                d: "3"
+            },
+            correctAnswer: "a"
+        },
+        {
+            question: "Há 3 fadas Peppas brincando e chegou mais 3 para brincar. Quantas fadas Peppas estão brincando?",
+            answers: {
+                a: "3",
+                b: "2",
+                c: "5",
+                d: "6"
+            },
+            correctAnswer: "d"
+        }
+    ];
+
+    //cria as questões
+    function createQuestion(value) {
+
+        question_div.innerHTML = ' ';
 
         var letters = [];
-           var i = 0;
-        
+        var i = 0;
+
         // Define as alternativas
-        for (letter in myQuestions[value].answers) {
-                  
-                  questionNumber = value +1;
-                  answer = myQuestions[value].answers[letter].toString();
-                  
+        for (letter in levelObj.question[value].answers) {
 
-                  
+            questionNumber = value + 1;
+            answer = levelObj.question[value].answers[letter].toString();
 
-                  letters[i] =  `
+
+            letters[i] = `
                  
-                    <div class="col-sm-3 placeholder" id="`+ letter +`">
+                    <div class="col-sm-3 placeholder" id="` + letter + `">
                         <div class="displayed" >
-                      <img src="../img/fases/peppa/` + questionNumber + `/` + answer +`.png" width="200" height="200" value="`+ letter +`" id="answer" class="img-responsive" " alt="Generic placeholder thumbnail" >
-                          <h4 > `+ myQuestions[value].answers[letter] + `</h4>
+                      <img src="../../images/fases/levelObj.name/` + questionNumber + `/` + answer + `.png" width="200" height="200" value="` + letter + `" id="answer" class="img-responsive animated bounceInUp"  alt="Generic placeholder thumbnail" >
+                          <h4 class="animated rubberBand" > ` + levelObj.question[value].answers[letter] + `</h4>
                      
                         </div>
                       </div>
-                ` ;
-                i++;
+                `;
+            i++;
 
-            } 
+        }
 
         twoFirtsLetters = `<div class="row placeholders"  > ` + letters[0] + letters[1] + `</div>`;
 
@@ -231,97 +226,95 @@
         //junta as views
         question_div.innerHTML += `<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main' align='center'>
           
-                                       <h1 class=" page-header">`+ myQuestions[value].question + `</h1>
+                                       <h1 class="animated rubberBand">` + myQuestions[value].question + `</h1>
                                        <div id='game' >` + twoFirtsLetters + twoLastLetters;
-             
-       
 
-    } 
 
-//proxima questão
-function next(value){
+    }
 
-  value += 1;
-            if(value < myQuestions.length){
-              play(value);
+    //proxima questão
+    function next(value) {
+
+        value += 1;
+        if (value < myQuestions.length) {
+            play(value);
+        } else {
+            if (score >= 3) {
+                question_div.innerHTML = `
+                  <div class="displayed">
+                     <img src="../../images/fases/end-scream/parabens.png" >
+                  </div>
+                  `;
+                $("img").click(function () {
+                    location.href = "fases.html";
+                });
+
+            } else {
+                question_div.innerHTML = `
+                  <div class="displayed">
+                     <img src="../../images/fases/end-scream/tente-novamente.png" >
+                  </div>
+                  `;
+
+                $("img").click(function () {
+                    location.href = "fase.html";
+                });
             }
-            else
-              {
-                if(score >=3){
-                  question_div.innerHTML = `
-                  <div class="displayed">
-                     <img src="../img/fases/end-scream/parabens.png" >
-                  </div>
-                  `;
-                  $( "img" ).click(function() { location.href="fases.html"; });
+        }
 
-                }else{
-                 question_div.innerHTML = `
-                  <div class="displayed">
-                     <img src="../img/fases/end-scream/tente-novamente.png" >
-                  </div>
-                  `;
+    }
 
-                  $( "img" ).click(function() { location.href="fase.html"; });
-                }
-              }
+    //Inicia o jogo
+    function play(value) {
 
-}
 
-  //Inicia o jogo
-     function play(value){
-
-      
-      // Exibe as questões
+        // Exibe as questões
         createQuestion(value);
 
-          //vai para a proxima questão e marca o resultado
-          $( "img" ).click(function() {
+        //vai para a proxima questão e marca o resultado
+        $("img").click(function () {
 
-             var letter =  $(this).attr("value");
-
-          
-
-             if(letter == myQuestions[value].correctAnswer){
-              score += 1;
-              console.log("score é:" +score);
-              document.getElementById(letter).style.backgroundColor = "green";
-
-              setTimeout(function(){  
-                 
-                   next(value);
-
-              }, 2000);
-               
-
-                
-             }
-            else{
-             document.getElementById(letter).style.backgroundColor = "red";
-
-             document.getElementById(myQuestions[value].correctAnswer).style.backgroundColor = "green";
-             
-             document.getElementById(myQuestions[value].correctAnswer).style.pointerEvents = "none";
-              setTimeout(function(){ 
-                   next(value);
-
-              }, 1000);
-              
-               }
-
-          
-            
-
-            });
-         
-        
-    }   
-
-     
-    play(0);  
+            var letter = $(this).attr("value");
 
 
-    
+            if (letter == myQuestions[value].correctAnswer) {
+                score += 1;
+                console.log("score é:" + score);
+                document.getElementById(letter).style.backgroundColor = "#2EBC18";
+
+                setTimeout(function () {
+
+                    next(value);
+
+                }, 1000);
+
+
+            } else {
+                document.getElementById(letter).style.backgroundColor = "#E72344";
+                document.getElementById("answer").style.backgroundColor = "#E72344";
+
+                document.getElementById(myQuestions[value].correctAnswer).style.backgroundColor = "#2EBC18";
+
+                document.getElementById(myQuestions[value].correctAnswer).style.pointerEvents = "none";
+                setTimeout(function () {
+                    next(value);
+
+                }, 1000);
+
+            }
+
+
+        });
+
+
+    }
+
+
+    //console.log("level name eh: " + level.name);
+    play(0);
+
 
 </script>
+
+
 </html>

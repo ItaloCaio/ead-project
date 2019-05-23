@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en" ng-app="appCadastro">
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="A layout example that shows off a blog page with a list of posts." name="description"/>
+    <title>E-education</title>
+
+    <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          rel="stylesheet"/>
+    <link href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css" rel="stylesheet"/>
+    <link href="css/blog.css" rel="stylesheet"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet"/>
+    <script src="js/angular.min.js" type="text/javascript"></script>
+
+    <style type="text/css">
+        #option:hover {
+            background-color: #A9A9F5;
+        }
+        .input {
+            color: black;
+        }
+        .form-color {
+            color: black;
+        }
+    </style>
+</head>
+
+<body ng-controller="appCadastroCtrl">
+
+<div class="pure-g" id="layout">
+
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">E-education</h1>
+            <h2 class="brand-tagline">Um lugar perfeito para se aprender!</h2>
+
+            <div id="login_div">
+                <form action="/login" class="pure-form pure-form-aligned" method="POST" name="f">
+                    {{ userLogado.username}}
+                    <fieldset>
+                        <br/>
+                        <div class="pure-control-group">
+                            <input class="form-color" id="name" name="username" placeholder="Usuário" type="text"/>
+                        </div>
+                        <div class="pure-control-group">
+                            <input class="form-color" id="password" name="password" placeholder="Senha" type="password"/>
+                        </div>
+
+                        <button class="pure-button" name="submit" type="submit" value="Login">Entrar</button>
+
+                        <div class="pure-control-group">
+                            <br/>
+                            É novo no e-Education? <a href="/cadastro"> Cadastre-se </a>
+                        </div>
+                    </fieldset>
+                    <br/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content pure-u-1 pure-u-md-3-4">
+
+    <div>
+        <!-- A wrapper for all the blog posts -->
+        <div class="posts">
+            <!-- A sine blog post -->
+            <section class="post">
+                <header class="post-header">
+
+
+                    <h2 class="animated rubberBand">Crie Salas Personalizadas</h2>
+                    <p class="post-meta">
+                        O <a class="post-author" href="#">Education</a> para os <a
+                            class="post-category post-category-js" href="#">Professores</a>
+                    </p>
+                </header>
+
+                <div class="post-description">
+                    <p>
+                        No e-Education você pode criar salas personalizadas!
+                    </p>
+                    <div class="pure-u-1 pure-u-md-1-2">
+
+                        <img alt="Photo of someone working poolside at a resort"
+                             class="pure-img-responsive"
+                             src="images/duvida.png" />
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="posts">
+        <section class="post">
+            <header class="post-header">
+
+
+                <h2 class="post-title">Submeta Suas Atividades</h2>
+
+                <p class="post-meta">
+                    O <a class="post-author" href="#">Education</a> para os <a class="post-category post-category-js"
+                                                                               href="#">Professores</a>
+                </p>
+            </header>
+
+            <div class="post-description">
+                <p>
+                    Na plataforma o professor pode atribuir atividades aos alunos e os alunos podem lhe enviar
+                    diretamentamente por ela.
+                </p>
+            </div>
+        </section>
+
+        <section class="post">
+            <header class="post-header">
+                <h2 class="post-title">Tire Todas suas Dúvidas</h2>
+
+                <p class="post-meta">
+                    O <a class="post-author" href="#">E-Education</a> para os <a class="post-category"
+                                                                                 href="#">Mentores</a>
+                </p>
+            </header>
+
+            <div class="post-description">
+                <p>
+                    Aqui as dúvidas não ficam para depois.
+                </p>
+            </div>
+            <div class="post-description">
+                <div class="post-images pure-g">
+                    <div class="pure-u-1 pure-u-md-1-2">
+
+                        <img alt="Photo of someone working poolside at a resort" class="pure-img-responsive"
+                             src="images/duvida.png"/>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section class="post">
+            <header class="post-header">
+
+
+                <h2 class="post-title">Teste Seus Conhecimentos</h2>
+
+                <p class="post-meta">
+                    O <a class="post-author" href="#">E-Education</a> para os <a class="post-category post-category-yui"
+                                                                                 href="#">Alunos</a>
+                </p>
+            </header>
+
+            <div class="post-description">
+                <p>
+                    No E-Education a avalição do aprendizado acontece.
+                </p>
+
+                <div class="pure-u-1 pure-u-md-1-2">
+
+                    <img class="pure-img-responsive" src="gif/fase1.gif" />
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div class="footer">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul>
+                <li class="pure-menu-item"><a class="pure-menu-link" href="">Sobre</a></li>
+                <li class="pure-menu-item"><a class="pure-menu-link" href="">GitHub</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+<script type="text/javascript">
+
+    /*
+    var cadastro_div = document.getElementById('cadastro_div').style.display;
+
+    var block = document.getElementById('cadastro_div').style.display = 'none';
+
+function cadastro(el) {
+
+        document.getElementById('login_div').style.display = 'none';
+
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+
+    }
+
+function login(el){
+    document.getElementById('cadastro_div').style.display = 'none';
+
+        var display = document.getElementById(el).style.display;
+
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+
+}
+
+*/
+</script>
+
+<script src="js/controllers/registerCtrl.js"></script>
+</html>

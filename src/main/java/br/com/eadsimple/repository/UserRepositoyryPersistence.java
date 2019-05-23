@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface UserRepositoyryPersistence extends CrudRepository<User, Long> {
     List<User> findByNameIgnoreCaseContaining(String name);
+    User findByUsername(String username);
 
 
 }

@@ -1,7 +1,6 @@
 package br.com.eadsimple.endpoint;
 
 import br.com.eadsimple.error.CustomErrorType;
-import br.com.eadsimple.model.Student;
 import br.com.eadsimple.model.game.to.operate.Question;
 import br.com.eadsimple.repository.QuestionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +16,7 @@ public class QuestionEndpoint {
     private final QuestionRepository questionRepository;
 
     @Autowired
-    public QuestionEndpoint(QuestionRepository questionRepository){
+    public QuestionEndpoint(QuestionRepository questionRepository) {
         this.questionRepository = questionRepository;
     }
 

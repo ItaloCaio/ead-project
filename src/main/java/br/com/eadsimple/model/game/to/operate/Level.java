@@ -10,8 +10,9 @@ import java.util.List;
 public class Level extends AbstractEntity {
 
     private int number;
-    @OneToMany(mappedBy="level")
-    private List<Question> questions;
+    private String name;
+    @OneToMany(mappedBy = "level")
+    private List<Question> myQuestions;
     private boolean complete;
 
 
@@ -33,12 +34,18 @@ public class Level extends AbstractEntity {
     }
 
     public List<Question> getQuestions() {
-        return questions;
+        return myQuestions;
     }
 
     public void setQuestions(List<Question> questions) {
-        this.questions = questions;
+        this.myQuestions = myQuestions;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 }
