@@ -5,11 +5,15 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
     urlClass = 'http://localhost:8080/class';
     urlUser = 'http://localhost:8080/user/on';
 
+    var pathname = window.location.pathname.split( '/' );
+    urlClassById ='http://localhost:8080/class/' +  pathname[2];
+
     $scope.getClasses = function () {
+
         $http.get(urlClass).then(successCallback, errorCallback);
+
         function successCallback(response) {
             $scope.classes = response.data;
-            console.log($scope.classes);
         }
         function errorCallback(error) {
             alert("erro no get");
@@ -17,7 +21,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
     };
 
     $scope.getUser = function () {
-        console.log("retornar usuário");
+
         $http.get(urlUser).then(successCallback, errorCallback);
 
         function successCallback(response) {
@@ -28,6 +32,19 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
             alert("erro no get");
         }
     };
+
+    $scope.getClassById = function (){
+
+        $http.get(urlClassById).then(successCallback, errorCallback);
+
+        function successCallback(response) {
+            $scope.classId = response.data;
+            console.log('sala: ', response.data);
+        }
+        function errorCallback(error) {
+            alert("erro no get");
+        }
+    }
 
     $scope.selecionaUsuario = function (usuarioSelecionado) {
         $scope.usuario = usuarioSelecionado;
@@ -48,5 +65,6 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
 
     $scope.getClasses();
     $scope.getUser();
+    $scope.getClassById();
 
 });
