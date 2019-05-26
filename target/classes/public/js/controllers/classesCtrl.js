@@ -7,6 +7,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
 
     var pathname = window.location.pathname.split( '/' );
     urlClassById ='http://localhost:8080/class/' +  pathname[2];
+    urlStream = 'http://localhost:8080/stream';
 
     $scope.getClasses = function () {
 
@@ -46,6 +47,26 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
         }
     }
 
+
+
+
+    $scope.saveStream = function (stream){
+
+        stream.user = $scope.userLogado;
+        stream.aClass = $scope.classId;
+        $http.post(urlStream, stream).then(successCallback, errorCallback);
+
+        function successCallback(response) {
+            $scope.stream = response.data;
+            window.location.reload();
+
+        }
+        function errorCallback(error) {
+            alert("erro no get");
+        }
+    }
+
+
     $scope.selecionaUsuario = function (usuarioSelecionado) {
         $scope.usuario = usuarioSelecionado;
     };
@@ -66,5 +87,6 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
     $scope.getClasses();
     $scope.getUser();
     $scope.getClassById();
+
 
 });

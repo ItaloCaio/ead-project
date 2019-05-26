@@ -16,6 +16,8 @@ public class Class extends AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "professor_id", referencedColumnName = "id")
     private User professor;
+    @OneToMany(mappedBy = "aClass")
+    private List<Video> videos;
 
 
     public String getName() {
@@ -49,4 +51,13 @@ public class Class extends AbstractEntity {
     public void setProfessor(User professor) {
         this.professor = professor;
     }
+
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
+    }
 }
+

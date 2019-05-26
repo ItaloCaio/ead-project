@@ -16,6 +16,9 @@ public class Stream extends AbstractEntity {
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     private Class aClass;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User user;
 
     public String getContent() {
         return content;
@@ -31,5 +34,13 @@ public class Stream extends AbstractEntity {
 
     private void setaClass(Class aClass) {
         this.aClass = aClass;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

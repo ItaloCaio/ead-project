@@ -11,6 +11,8 @@
     <script src="../js/angular.min.js" type="text/javascript"></script>
 
     <link href="../css/email.css" rel="stylesheet"/>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet"/>
 
 </head>
 <body ng-controller="appClassesCtrl">
@@ -18,18 +20,17 @@
 
 <div class="content pure-g" id="layout">
     <div class="pure-u" id="nav">
-        <a class="nav-menu-button" href="#">Menu</a>
 
         <div class="nav-inner">
-
+            <a href="/"> <button class="primary-button pure-button"> Education</button> </a>
 
             <div class="pure-menu">
                 <ul class="pure-menu-list">
 
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                            class="email-label-personal"></span>Turmas</a></li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span class="email-label-work"></span>Nova
-                        turma</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" onclick="stream('stream_div')"><span
+                            class="email-label-personal"></span>Mural</a> </li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" onclick="video('videos_div')"><span class="email-label-work"></span>
+                        Videos</a></li>
                     <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
                             class="email-label-travel"></span>Atividades</a></li>
                     <li class="pure-menu-heading">inscrito</li>
@@ -43,42 +44,39 @@
         </div>
     </div>
 
-    <div class="pure-u-2-3">
+    <!--STREAM -->
+   <div class="pure-u-2-3" id="stream_div">
+       <form class="pure-form">
+           <fieldset class="pure-group">
 
-        <div class="pure-menu pure-menu-horizontal pure-menu-scrollable">
-            <a href="#" class="pure-menu-link pure-menu-heading">Sala</a>
-            <ul class="pure-menu-list">
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Mural</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Atividades</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Vídeos</a></li>
-                <li class="pure-menu-item"><a href="#" class="pure-menu-link">Alunos</a></li>
-            </ul>
+               <input class="pure-u-1" placeholder="Comparilhe algo" ng-model="stream.content" type="text"/>
+           </fieldset>
+           <fieldset align="right">
+               <button class="pure-button pure-u-1-4 pure-button-primary" ng-click="saveStream(stream)" type="submit">Enviar</button>
+               <button class="pure-button pure-u-1-4 pure-button-error">Cancelar</button>
+           </fieldset>
+       </form>
+
+       <div class="email-item email-item-selected" ng-repeat="stream in classId.streams">
+           <div class="pure-u">
+               <h4 class="email-subject">{{stream.user.name}}</h4>
+               <p class="email-desc">
+                   {{stream.content}}
+               </p>
+           </div>
+           <br/>
+       </div>
+       <br/>
+
+   </div>
+
+    <!-- List-Videos !-->
+    <div class="pure-u-1" id="videos_div">
+        <div class="list-group">
+            <a href="/sala/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="video in classId.videos">
+                {{video.title}}
+            </a>
         </div>
-
-        <form class="pure-form">
-
-            <fieldset class="pure-group">
-
-                <input class="pure-u-1" placeholder="Comparilhe algo" type="text"/>
-            </fieldset>
-            <fieldset align="right">
-                <button class="pure-button pure-u-1-4 pure-button-primary" type="submit">Enviar</button>
-                <button class="pure-button pure-u-1-4 pure-button-error">Cancelar</button>
-            </fieldset>
-        </form>
-
-
-        <div class="email-item email-item-selected">
-            <div class="pure-u">
-                <h5 class="email-name">Tilo Mitra</h5>
-                <h4 class="email-subject">Dúvida Atividade 1</h4>
-                <p class="email-desc">
-                    Estou com uma dúvida na questão 2.
-                </p>
-            </div>
-        </div>
-        <br/>
-
     </div>
 
 </div>
@@ -86,4 +84,33 @@
 
 </body>
 <script src="../js/controllers/classesCtrl.js"></script>
+
+<script>
+
+    var videos_div = document.getElementById('videos_div').style.display;
+
+    var blockVideo = document.getElementById('videos_div').style.display = 'none';
+
+    function stream(el) {
+        console.log('stream');
+        document.getElementById('videos_div').style.display = 'none';
+
+
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+
+    }
+
+    function video(el) {
+
+        document.getElementById('stream_div').style.display = 'none';
+
+        var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+
+    }
+
+</script>
 </html>

@@ -18,4 +18,11 @@ public class ClassCtrl {
     public String aClass(@PathVariable("codigo") long codigo) {
         return "views/class";
     }
+
+    @RequestMapping(value = "sala/{codigo}/aula/{codigo}", method = RequestMethod.GET)
+    public String videoById(@PathVariable("codigo") long codigo) {
+        return "views/video";
+    }
+
+    
 }

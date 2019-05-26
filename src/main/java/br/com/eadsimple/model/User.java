@@ -22,6 +22,8 @@ public class User extends AbstractEntity {
     private String type;
     @OneToMany(mappedBy = "professor")
     private List<Class> classList;
+    @OneToMany(mappedBy = "user")
+    private List<Stream> streamList;
 
     public String getUsername() {
         return username;
@@ -61,5 +63,13 @@ public class User extends AbstractEntity {
 
     private void setClassList(List<Class> classList) {
         this.classList = classList;
+    }
+
+    private List<Stream> getStreamList() {
+        return streamList;
+    }
+
+    private void setStreamList(List<Stream> streamList) {
+        this.streamList = streamList;
     }
 }

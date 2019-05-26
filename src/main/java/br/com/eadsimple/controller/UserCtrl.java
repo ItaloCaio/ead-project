@@ -26,4 +26,6 @@ public class UserCtrl {
         else
             return "views/register";
     }
+
+
 }
