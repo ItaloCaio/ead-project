@@ -24,7 +24,7 @@ public class UserCtrl {
         if (userDetails == null)
             return "views/home";
         else
-            return "views/register";
+            return "views/classes";
     }
 
 

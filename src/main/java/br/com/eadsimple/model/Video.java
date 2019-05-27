@@ -7,18 +7,27 @@ import javax.persistence.ManyToOne;
 @Entity
 public class Video extends AbstractEntity {
 
-    private String video;
+    private String url;
     private String title;
+    private String description;
     @ManyToOne
     @JoinColumn(name = "class_id", referencedColumnName = "id")
     private Class aClass;
 
-    public String getVideo() {
-        return video;
+    private Class getaClass() {
+        return aClass;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
+    private void setaClass(Class aClass) {
+        this.aClass = aClass;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getTitle() {
@@ -29,11 +38,11 @@ public class Video extends AbstractEntity {
         this.title = title;
     }
 
-    private Class getaClass() {
-        return aClass;
+    public String getDescription() {
+        return description;
     }
 
-    private void setaClass(Class aClass) {
-        this.aClass = aClass;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

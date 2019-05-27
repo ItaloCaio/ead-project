@@ -28,25 +28,16 @@
         <div class="pure-u" id="nav">
             <a class="nav-menu-button" href="#">Menu</a>
             <div class="nav-inner">
+                <a href="/"> <button class="primary-button pure-button"> Education</button> </a>
+
                 <div class="pure-menu">
                     <ul class="pure-menu-list">
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-personal"></span>Turmas</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-work"></span>Nova turma</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-travel"></span>Atividades</a></li>
-                        <li class="pure-menu-heading">inscrito</li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}"><span
+                                class="email-label-personal"></span>Sala</a></li>
+                        <li class="pure-menu-heading">Lista</li>
+                        <li class="pure-menu-item"><a href="/sala/{{classId.id}}/aula/{{video.id}}" class="pure-menu-link" ng-repeat="video in classId.videos"><span
+                                class="email-label-work"></span>{{video.title}}</a></li>
 
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-personal"></span>Turma A</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-work"></span>Turma B</a></li>
-
-                        <li class="pure-menu-heading">Jogos</li>
-
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-personal"></span>Operacionar</a></li>
                     </ul>
                 </div>
             </div>
@@ -56,7 +47,7 @@
             <!-- LVideo !-->
             <div>
                 <h4>{{videoId.title}}</h4>
-            <iframe width="1000" height="600" src="https://www.youtube.com/embed/{{videoId.video}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
+            <iframe width="1000" height="600"  ng-src="{{trustSrc(movie.src)}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true"></iframe>
 
             </div>
 

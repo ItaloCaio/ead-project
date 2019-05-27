@@ -31,14 +31,10 @@
                             class="email-label-personal"></span>Mural</a> </li>
                     <li class="pure-menu-item"><a class="pure-menu-link" onclick="video('videos_div')"><span class="email-label-work"></span>
                         Videos</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/newVideo"><span
+                            class="email-label-travel"></span>Criar Vídeo</a></li>
                     <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
                             class="email-label-travel"></span>Atividades</a></li>
-                    <li class="pure-menu-heading">inscrito</li>
-
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                            class="email-label-personal"></span>Turma A</a></li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span class="email-label-work"></span>Turma
-                        B</a></li>
                 </ul>
             </div>
         </div>
@@ -73,7 +69,7 @@
     <!-- List-Videos !-->
     <div class="pure-u-1" id="videos_div">
         <div class="list-group">
-            <a href="/sala/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="video in classId.videos">
+            <a href="/sala/{{classId.id}}/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="video in classId.videos">
                 {{video.title}}
             </a>
         </div>
@@ -83,7 +79,7 @@
 
 
 </body>
-<script src="../js/controllers/classesCtrl.js"></script>
+<script src="../js/controllers/classCtrl.js"></script>
 
 <script>
 

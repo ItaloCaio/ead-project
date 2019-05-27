@@ -24,5 +24,9 @@ public class ClassCtrl {
         return "views/video";
     }
 
+    @RequestMapping(value = "/sala/new", method = RequestMethod.GET)
+    public String saveClass() {
+        return "views/newClass";
+    }
     
 }
