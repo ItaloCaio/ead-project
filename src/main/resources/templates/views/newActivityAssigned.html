@@ -40,29 +40,24 @@
     <div class="pure-u-2-3">
 
 
-        <h2 class="post-title">Cadastro de Vídeo</h2>
+        <h2 class="post-title">Atribuição de Atividade</h2>
 
         <form class="pure-form pure-form-aligned">
             <fieldset>
 
 
                 <div class="pure-control-group">
-                    <label for="name">Nome do vídeo</label>
-                    <input id="name" ng-model="video.title" placeholder="Título" type="text"/>
-                </div>
-
-                <div class="pure-control-group">
-                    <label for="url">Url do vídeo</label>
-                    <input id="url" ng-model="video.url" placeholder="URL"/>
+                    <label for="name">Título</label>
+                    <input id="name" ng-model="activityAssigned.title" placeholder="Título" type="text"/>
                 </div>
 
                 <div class="pure-control-group">
                     <label for="descricao">Descricao</label>
-                    <input id="descricao" ng-model="video.description" placeholder="Descrição" type="text"/>
+                    <input id="descricao" ng-model="activityAssigned.description" placeholder="Descrição" type="text"/>
                 </div>
 
 
-                <button class="pure-button" ng-click="saveVideo(video)" type="submit">Cadastrar</button>
+                <button class="pure-button" ng-click="saveActivityAssigned(activityAssigned)" type="submit">Atribuir</button>
 
 
             </fieldset>
@@ -73,5 +68,5 @@
 </body>
 
 
-<script src="../../js/controllers/videoCtrl.js"></script>
+<script src="../../js/controllers/activityCtrl.js"></script>
 </html>

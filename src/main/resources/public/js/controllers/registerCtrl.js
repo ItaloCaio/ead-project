@@ -53,8 +53,6 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
                 console.log("salvou", user);
                 delete $scope.user;
             });
-
-
         } else if (user.type == 'Professor') {
             console.log('O tipo do usuário é Professor');
         } else if (user.type == 'Tutor') {

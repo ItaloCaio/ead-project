@@ -29,11 +29,13 @@
 
                     <li class="pure-menu-item"><a class="pure-menu-link" onclick="stream('stream_div')"><span
                             class="email-label-personal"></span>Mural</a> </li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" onclick="video('videos_div')"><span class="email-label-work"></span>
+                    <li class="pure-menu-item"><a class="pure-menu-link" onclick="video('video_div')"><span class="email-label-work"></span>
                         Videos</a></li>
+                    <li class="pure-menu-item"><a class="pure-menu-link" onclick="activity('activity_div')"><span
+                            class="email-label-travel"></span>Atividades</a></li>
                     <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/newVideo"><span
                             class="email-label-travel"></span>Criar Vídeo</a></li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
+                    <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/novaAtividade"><span
                             class="email-label-travel"></span>Atividades</a></li>
                 </ul>
             </div>
@@ -45,7 +47,7 @@
        <form class="pure-form">
            <fieldset class="pure-group">
 
-               <input class="pure-u-1" placeholder="Comparilhe algo" ng-model="stream.content" type="text"/>
+               <input class="pure-u-1" placeholder="Compartilhe algo" ng-model="stream.content" type="text"/>
            </fieldset>
            <fieldset align="right">
                <button class="pure-button pure-u-1-4 pure-button-primary" ng-click="saveStream(stream)" type="submit">Enviar</button>
@@ -67,10 +69,17 @@
    </div>
 
     <!-- List-Videos !-->
-    <div class="pure-u-1" id="videos_div">
+    <div class="pure-u-1" id="video_div">
         <div class="list-group">
             <a href="/sala/{{classId.id}}/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="video in classId.videos">
                 {{video.title}}
+            </a>
+        </div>
+    </div>
+    <div class="pure-u-1" id="activity_div">
+        <div class="list-group">
+            <a href="/sala/{{classId.id}}/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="activity in classId.activityAssigneds">
+                {{activity.title}}
             </a>
         </div>
     </div>
@@ -83,13 +92,16 @@
 
 <script>
 
-    var videos_div = document.getElementById('videos_div').style.display;
+    var videos_div = document.getElementById('video_div').style.display;
+    var activity_div = document.getElementById('activity_div').style.display;
 
-    var blockVideo = document.getElementById('videos_div').style.display = 'none';
+    var blockVideo = document.getElementById('video_div').style.display = 'none';
+    var blockActivity = document.getElementById('activity_div').style.display = 'none';
 
     function stream(el) {
-        console.log('stream');
-        document.getElementById('videos_div').style.display = 'none';
+
+        document.getElementById('video_div').style.display = 'none';
+        document.getElementById('activity_div').style.display = 'none';
 
 
         var display = document.getElementById(el).style.display;
@@ -99,10 +111,21 @@
     }
 
     function video(el) {
-
+        document.getElementById('activity_div').style.display = 'none';
         document.getElementById('stream_div').style.display = 'none';
 
         var display = document.getElementById(el).style.display;
+        if(display == "none")
+            document.getElementById(el).style.display = 'block';
+
+    }
+    function activity(el) {
+        document.getElementById('video_div').style.display = 'none';
+        document.getElementById('stream_div').style.display = 'none';
+
+
+        var display = document.getElementById(el).style.display;
+
         if(display == "none")
             document.getElementById(el).style.display = 'block';
 

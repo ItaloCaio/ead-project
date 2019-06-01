@@ -18,6 +18,9 @@ public class Class extends AbstractEntity {
     private User professor;
     @OneToMany(mappedBy = "aClass")
     private List<Video> videos;
+    @OneToMany(mappedBy = "aClassActivity")
+    private List<ActivityAssigned> activityAssigneds;
+
 
 
     public String getName() {
@@ -58,6 +61,14 @@ public class Class extends AbstractEntity {
 
     public void setVideos(List<Video> videos) {
         this.videos = videos;
+    }
+
+    public List<ActivityAssigned> getActivityAssigneds() {
+        return activityAssigneds;
+    }
+
+    public void setActivityAssigneds(List<ActivityAssigned> activityAssigneds) {
+        this.activityAssigneds = activityAssigneds;
     }
 }
 
