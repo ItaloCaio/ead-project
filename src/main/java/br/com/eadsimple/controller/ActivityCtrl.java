@@ -13,9 +13,15 @@ public class ActivityCtrl {
         return "views/newActivityAssigned";
     }
 
-    @RequestMapping(value = "/sala/{codigo}/enviarAtividade", method = RequestMethod.GET)
+    @RequestMapping(value = "/sala/{codigo}/atividade/{codigo}", method = RequestMethod.GET)
     public String saveActivityReceived(@PathVariable("codigo") long codigo) {
 
         return "views/newActivityReceived";
+    }
+
+    @RequestMapping(value = "/sala/{codigo}/atividades/{codigo}", method = RequestMethod.GET)
+    public String getAtividades(@PathVariable("codigo") long codigo) {
+
+        return "views/listActivityReceived";
     }
 }

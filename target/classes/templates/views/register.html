@@ -63,8 +63,8 @@
                 <label for="state">O que você deseja ser?</label>
                 <select class="pure-input-1-2" id="state" ng-model="user.type" selected="true">
                     <option>Aluno</option>
-                    <option>Professor</option>
-                    <option>Tutor</option>
+                    <option ng-show="userON != undefined">Professor</option>
+                    <option ng-show="userON != undefined">Tutor</option>
 
                 </select>
             </div>

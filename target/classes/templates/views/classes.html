@@ -33,9 +33,9 @@
                     <ul class="pure-menu-list">
                         <li class="pure-menu-item"><a class="pure-menu-link" href="/"><span
                                 class="email-label-personal"></span>Turmas</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/new"><span
-                                class="email-label-work"></span>Nova turma</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="/cadastro"><span
+                        <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'" class="pure-menu-item"><a class="pure-menu-link" href="/sala/new"><span
+                                class="email-label-work" ></span>Nova turma</a></li>
+                        <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'" class="pure-menu-item"><a class="pure-menu-link" href="/cadastro"><span
                                 class="email-label-travel"></span>Cadastrar</a></li>
 
                         <li class="pure-menu-heading">Jogos</li>

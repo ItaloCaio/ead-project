@@ -25,7 +25,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
         $http.get(urlUser).then(successCallback, errorCallback);
 
         function successCallback(response) {
-            $scope.userLogado = response.data;
+            $scope.userON = response.data;
         }
 
         function errorCallback(error) {
@@ -52,7 +52,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
 
     $scope.saveStream = function (stream){
 
-        stream.user = $scope.userLogado;
+        stream.user = $scope.userON;
         stream.aClass = $scope.classId;
         $http.post(urlStream, stream).then(successCallback, errorCallback);
 
@@ -78,7 +78,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
 
 
     $scope.saveClass = function (aClass) {
-        aClass.professor_id = $scope.userLogado;
+        aClass.professor_id = $scope.userON;
         $http.post(urlClass, aClass).then(function (response) {
             delete $scope.aClass;
         });

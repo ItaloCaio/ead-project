@@ -23,7 +23,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
         $http.get(urlUser).then(successCallback, errorCallback);
 
         function successCallback(response) {
-            $scope.userLogado = response.data;
+            $scope.userON = response.data;
         }
 
         function errorCallback(error) {
@@ -65,9 +65,7 @@ angular.module("appEducation").controller("appClassesCtrl", function ($scope, $h
     }
 
 
-    $scope.selecionaUsuario = function (usuarioSelecionado) {
-        $scope.usuario = usuarioSelecionado;
-    };
+
 
 
     $scope.limparCampos = function () {

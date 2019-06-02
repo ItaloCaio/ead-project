@@ -11,6 +11,9 @@ public class ActivityReceived extends AbstractEntity{
     @JoinColumn(name = "activity_id", referencedColumnName = "id")
     private ActivityAssigned activityAssigned;
     private String answer;
+    @ManyToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    private User userActivity;
 
     private ActivityAssigned getActivityAssigned() {
         return activityAssigned;
@@ -26,5 +29,13 @@ public class ActivityReceived extends AbstractEntity{
 
     public void setAnswer(String answer) {
         this.answer = answer;
+    }
+
+    public User getUserActivity() {
+        return userActivity;
+    }
+
+    public void setUserActivity(User userActivity) {
+        this.userActivity = userActivity;
     }
 }

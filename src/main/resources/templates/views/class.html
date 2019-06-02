@@ -14,6 +14,13 @@
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet"/>
 
+    <style>
+        #stream:hover {
+            background: #D6DBDF;
+        }
+
+    </style>
+
 </head>
 <body ng-controller="appClassesCtrl">
 
@@ -33,10 +40,11 @@
                         Videos</a></li>
                     <li class="pure-menu-item"><a class="pure-menu-link" onclick="activity('activity_div')"><span
                             class="email-label-travel"></span>Atividades</a></li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/newVideo"><span
-                            class="email-label-travel"></span>Criar Vídeo</a></li>
-                    <li class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/novaAtividade"><span
-                            class="email-label-travel"></span>Atividades</a></li>
+                    <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'"  class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/newVideo"><span
+                            class="email-label-work"></span>Criar Vídeo</a></li>
+                    <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'"  class="pure-menu-item"><a class="pure-menu-link" href="/sala/{{classId.id}}/novaAtividade"><span
+                            class="email-label-travel"></span>Atribuir Atividade</a></li>
+
                 </ul>
             </div>
         </div>
@@ -55,15 +63,15 @@
            </fieldset>
        </form>
 
-       <div class="email-item email-item-selected" ng-repeat="stream in classId.streams">
-           <div class="pure-u">
-               <h4 class="email-subject">{{stream.user.name}}</h4>
-               <p class="email-desc">
-                   {{stream.content}}
-               </p>
+           <div class="email-item " id="stream" ng-repeat="stream in classId.streams">
+               <div class="pure-u">
+                   <h4 class="email-subject">{{stream.user.name}}</h4>
+                   <p class="email-desc">
+                       {{stream.content}}
+                   </p>
+               </div>
+               <br/>
            </div>
-           <br/>
-       </div>
        <br/>
 
    </div>
@@ -76,11 +84,14 @@
             </a>
         </div>
     </div>
-    <div class="pure-u-1" id="activity_div">
+    <div class="pure-u-2-3" id="activity_div">
         <div class="list-group">
-            <a href="/sala/{{classId.id}}/aula/{{video.id}}" class="list-group-item list-group-item-action" ng-repeat="activity in classId.activityAssigneds">
-                {{activity.title}}
-            </a>
+            <div  class="list-group-item list-group-item-action" ng-repeat="activity in classId.activityAssigneds">
+              {{activity.title}}
+               <a ng-show="userON.type == 'ALUNO'"  href="/sala/{{classId.id}}/atividade/{{activity.id}}" style="float: right;"> <button class="button-success pure-button">Enviar Atividade</button></a>
+                <a ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'"  href="/sala/{{classId.id}}/atividades/{{activity.id}}" style="float: right;">  <button class="button-secondary pure-button">Atividades Enviadas</button> </a>
+
+            </div>
         </div>
     </div>
 
@@ -130,6 +141,18 @@
             document.getElementById(el).style.display = 'block';
 
     }
+
+    var teste = document.getElementById("teste");
+
+    // Get all buttons with class="btn" inside the container
+    var btns = teste.getElementsByClassName("email-item");
+
+            btns[0].addEventListener("click", function() {
+                var current = document.getElementsByClassName("email-item-selected");
+                current[0].className = current[0].className.replace(" email-item-selected", "");
+                this.className += " email-item-selected";
+            });
+
 
 </script>
 </html>

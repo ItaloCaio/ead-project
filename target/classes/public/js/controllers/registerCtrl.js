@@ -5,7 +5,7 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
 
     urlCadastro = 'http://localhost:8080/user';
     urlUser = 'http://localhost:8080/user/on';
-    $scope.userLogado = null;
+    $scope.userON = null;
 
     $scope.users = ['ALUNO', 'PROFESSOR', 'TUTOR'];
 
@@ -28,7 +28,7 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
         $http.get(urlUser).then(successCallback, errorCallback);
 
         function successCallback(response) {
-            $scope.userLogado = response.data;
+            $scope.userON = response.data;
         }
 
         function errorCallback(error) {
