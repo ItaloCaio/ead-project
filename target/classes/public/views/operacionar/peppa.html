@@ -97,18 +97,13 @@
                 <div class="pure-menu">
                     <ul class="pure-menu-list">
 
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-personal"></span>Turmas</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-work"></span>Nova turma</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-travel"></span>Atividades</a></li>
-                        <li class="pure-menu-heading">inscrito</li>
-
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-personal"></span>Turma A</a></li>
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="#"><span
-                                class="email-label-work"></span>Turma B</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="inicio.html"><span
+                                class="email-label-personal"></span>Inicio</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="ajuda.html"><span
+                                class="email-label-work"></span>Ajuda</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="somar.html"><span
+                                class="email-label-travel"></span>Voltar</a></li>
+                        
                     </ul>
                 </div>
             </div>
@@ -238,11 +233,11 @@
             if (score >= 3) {
                 question_div.innerHTML = `
                   <div class="displayed">
-                     <img src="../../images/fases/end-scream/parabens.png" >
+                     <img width="500" height="500" src="../../images/fases/end-scream/parabens.png" >
                   </div>
                   `;
                 $("img").click(function () {
-                    location.href = "fases.html";
+                    location.href = "somar.html";
                 });
 
             } else {

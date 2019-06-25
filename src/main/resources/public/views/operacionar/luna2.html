@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="A layout example that shows off a responsive email layout." name="description">
+    <title>Vamos Contar!</title>
+
+    <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
+          rel="stylesheet">
+
+    <style type="text/css">
+
+        #option:hover {
+            background: #A9A9F5;
+
+
+        }
+
+        #a:hover {
+            background: #A9A9F5;
+
+        }
+
+        #a {
+            padding-right: 300px;
+        }
+
+        #b:hover {
+            background: #A9A9F5;
+
+        }
+
+        #b {
+
+            padding-right: 300px;
+        }
+
+        #c:hover {
+            background: #A9A9F5;
+            padding-right: 300px;
+        }
+
+        #c {
+            padding-right: 300px;
+        }
+
+        #d:hover {
+            background: #A9A9F5;
+
+        }
+
+        #d {
+
+            padding-right: 300px;
+        }
+
+        #errado:hover {
+            background: red;
+            padding-left: 40px;
+
+        }
+
+        .displayed {
+            padding-left: 40px;
+        }
+
+
+    </style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css" rel="stylesheet">
+
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="css/layouts/email-old-ie.css">
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+    <link href="../../css/email.css" rel="stylesheet">
+    <link href="../../css/gallery.css" rel="stylesheet">
+    <link href="../../css/dashboard.css" rel="stylesheet">
+    <!--<![endif]-->
+</head>
+<body>
+
+
+<div class="pure-u-1">
+
+
+    <div class="content pure-g" id="layout">
+
+        <div class="pure-u" id="nav">
+            <a class="nav-menu-button" href="#">Menu</a>
+
+            <div class="nav-inner">
+
+
+                <div class="pure-menu">
+                    <ul class="pure-menu-list">
+
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="inicio.html"><span
+                                class="email-label-personal"></span>Inicio</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="ajuda.html"><span
+                                class="email-label-work"></span>Ajuda</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="subtrair.html"><span
+                                class="email-label-travel"></span>Voltar</a></li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="pure-u-1">
+            <!-- BootStrap !-->
+            <div align="center" class="container-fluid">
+                <div id="question">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../../js/jquery-slim.min.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+
+    var question_div = document.getElementById("question");
+
+
+    var score = 0;
+
+
+    const myQuestions = [
+        {
+            question: "A Luna precisa caçar 10 borboletas. Ela já conseguiu 6. Quantas borboletas faltam?",
+            answers: {
+                a: "4",
+                b: "2",
+                c: "6",
+                d: "7"
+            },
+            correctAnswer: "a"
+        },
+        {
+            question: "O Jupiter ganhou 5 peixinhos. Ele deu 2 para a Luna. Com quantos peixinhos ele ficou?",
+            answers: {
+                a: "5",
+                b: "3",
+                c: "4",
+                d: "1"
+            },
+            correctAnswer: "b"
+        },
+        {
+            question: "O Cláudio precisa escavar 7 buracos. Ele já escavou 3. Quantos buracos restam?",
+            answers: {
+                a: "7",
+                b: "4",
+                c: "3",
+                d: "6"
+            },
+            correctAnswer: "b"
+        },
+        {
+            question: "A Luna deve visitar 4 planetas. Ela já visitou 1 deles. Quantos planetas faltam visitar?",
+            answers: {
+                a: "2",
+                b: "1",
+                c: "5",
+                d: "3"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "O Jupiter capturou 6 abelhas. Mas, 3 abelhas escaparam. Com quantas abelhas ele ficou?",
+            answers: {
+                a: "3",
+                b: "2",
+                c: "5",
+                d: "7"
+            },
+            correctAnswer: "a"
+        }
+    ];
+
+    //cria as questões
+    function createQuestion(value) {
+
+        question_div.innerHTML = ' ';
+
+        var letters = [];
+        var i = 0;
+
+        // Define as alternativas
+        for (letter in myQuestions[value].answers) {
+
+            questionNumber = value + 1;
+            answer = myQuestions[value].answers[letter].toString();
+
+
+            letters[i] = `
+                 
+                    <div class="col-sm-3 placeholder" id="` + letter + `">
+                        <div class="displayed" >
+                      <img src="../../images/fases/subtracao/luna/` + questionNumber + `/` + answer + `.png" width="200" height="200" value="` + letter + `" id="answer" class="img-responsive animated bounceInUp"  alt="Generic placeholder thumbnail" >
+                          <h4 class="animated rubberBand" > ` + myQuestions[value].answers[letter] + `</h4>
+                     
+                        </div>
+                      </div>
+                `;
+            i++;
+
+        }
+
+        twoFirtsLetters = `<div class="row placeholders"  > ` + letters[0] + letters[1] + `</div>`;
+
+        twoLastLetters = `<div class="row placeholders"  > ` + letters[2] + letters[3] + `</div>`;
+
+
+        //junta as views
+        question_div.innerHTML += `<div class='col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main' align='center'>
+          
+                                       <h1 class="animated rubberBand">` + myQuestions[value].question + `</h1>
+                                       <div id='game' >` + twoFirtsLetters + twoLastLetters;
+
+
+    }
+
+    //proxima questão
+    function next(value) {
+
+        value += 1;
+        if (value < myQuestions.length) {
+            play(value);
+        } else {
+            if (score >= 3) {
+                question_div.innerHTML = `
+                  <div class="displayed">
+                     <img width="500" height="500" src="../../images/fases/end-scream/parabens.png" >
+                  </div>
+                  `;
+                $("img").click(function () {
+                    location.href = "subtrair.html";
+                });
+
+            } else {
+                question_div.innerHTML = `
+                  <div class="displayed">
+                     <img width="500" height="500" src="../../images/fases/end-scream/tente-novamente.png" >
+                  </div>
+                  `;
+
+                $("img").click(function () {
+                    location.reload(true);
+                });
+            }
+        }
+
+    }
+
+    //Inicia o jogo
+    function play(value) {
+
+
+        // Exibe as questões
+        createQuestion(value);
+
+        //vai para a proxima questão e marca o resultado
+        $("img").click(function () {
+
+            var letter = $(this).attr("value");
+
+
+            if (letter == myQuestions[value].correctAnswer) {
+                score += 1;
+                console.log("score é:" + score);
+                document.getElementById(letter).style.backgroundColor = "#2EBC18";
+
+                setTimeout(function () {
+
+                    next(value);
+
+                }, 1000);
+
+
+            } else {
+                document.getElementById(letter).style.backgroundColor = "#E72344";
+                document.getElementById("answer").style.backgroundColor = "#E72344";
+
+                document.getElementById(myQuestions[value].correctAnswer).style.backgroundColor = "#2EBC18";
+
+                document.getElementById(myQuestions[value].correctAnswer).style.pointerEvents = "none";
+                setTimeout(function () {
+                    next(value);
+
+                }, 1000);
+
+            }
+
+
+        });
+
+
+    }
+
+
+    play(0);
+
+
+</script>
+</html>

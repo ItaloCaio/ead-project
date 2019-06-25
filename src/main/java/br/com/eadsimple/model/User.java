@@ -26,6 +26,10 @@ public class User extends AbstractEntity {
     private List<Stream> streamList;
     @OneToMany(mappedBy = "userActivity")
     private List<ActivityReceived> activityReceiveds;
+    @OneToMany(mappedBy = "userSupport")
+    private List<Support> supportList;
+    @OneToMany(mappedBy = "userAnswer")
+    private List<SupportAnswer> supportAnswers;
 
     public String getUsername() {
         return username;

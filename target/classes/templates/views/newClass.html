@@ -4,7 +4,7 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta content="A layout example that shows off a blog page with a list of posts." name="description"/>
-    <title>Criação de Sala - E-education</title>
+    <title>E-education</title>
 
     <link crossorigin="anonymous" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-"
           rel="stylesheet"/>
@@ -12,59 +12,73 @@
 
     <link href="https://unpkg.com/purecss@1.0.0/build/grids-responsive-min.css" rel="stylesheet"/>
 
-    <link href="../css/blog.css" rel="stylesheet"/>
-
-    <script src="../js/angular.min.js" type="text/javascript"></script>
+    <link href="../../css/email.css" rel="stylesheet"/>
+    <script src="../../js/angular.min.js" type="text/javascript"></script>
 </head>
+<style>
+    #ex {
+        color: red;
+    }
+</style>
 <body ng-controller="appClassesCtrl">
 
 
-<div class="pure-g" id="layout">
+<div class="content pure-g" id="layout">
 
+    <div class="pure-u" id="nav">
+        <a class="nav-menu-button" href="#">Menu</a>
+        <div class="nav-inner">
+            <a href="/">
+                <button class="primary-button pure-button"> Education</button>
+            </a>
 
-    <div class="sidebar pure-u-1 pure-u-md-1-4">
-        <div class="header">
-            <a href="/">   <h1 class="brand-title">E-education</h1> </a>
-<!--            <h2 class="brand-tagline">Um lugar perfeito para se aprender!</h2>-->
+            <div class="pure-menu">
+                <ul class="pure-menu-list">
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="/"><span
+                                class="email-label-personal"></span>Turmas</a></li>
+                        <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'" class="pure-menu-item"><a
+                                class="pure-menu-link" href="/sala/new"><span
+                                class="email-label-work"></span>Nova turma</a></li>
+                        <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'" class="pure-menu-item"><a
+                                class="pure-menu-link" href="/cadastro"><span
+                                class="email-label-travel"></span>Cadastrar</a></li>
+
+                        <li class="pure-menu-heading">Jogos</li>
+
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="views/operacionar/inicio.html"><span
+                                class="email-label-personal"></span>Operacionar</a></li>
+                    </ul>
+            </div>
         </div>
-
-
     </div>
 
 
-</div>
-
-<div class="content pure-u-1 pure-u-md-3-4">
+    <div class="pure-u-2-3">
 
 
-    <h2 class="post-title">Cadastro de Sala</h2>
+        <h2 class="post-title">Cadastro de Sala</h2>
 
-    <form class="pure-form pure-form-aligned">
-        <fieldset>
-
-
-            <div class="pure-control-group">
-                <label for="name">Nome da Sala</label>
-                <input id="name" ng-model="aClass.name" placeholder="Nome" type="text"/>
-            </div>
-
-            <div class="pure-control-group">
-                <label for="descricao">Descricao</label>
-                <input id="descricao" ng-model="aClass.description" placeholder="Nome" type="text"/>
-            </div>
+        <form class="pure-form pure-form-aligned">
+            <fieldset>
 
 
+                <div class="pure-control-group">
+                    <label for="name">Nome da Sala</label>
+                    <input id="name" ng-model="aClass.name" placeholder="Nome" type="text"/>
+                </div>
 
+                <div class="pure-control-group">
+                    <label for="descricao">Descricao</label>
+                    <input id="descricao" ng-model="aClass.description" placeholder="Nome" type="text"/>
+                </div>
 
-            <button class="pure-button" ng-click="saveClass(aClass)" type="submit">Cadastrar</button>
+                <button class="pure-button" ng-click="saveClass(aClass)" type="submit">Cadastrar</button>
 
+            </fieldset>
+        </form>
 
-        </fieldset>
-    </form>
-
+    </div>
 </div>
 </body>
-
-
 <script src="../js/controllers/classesCtrl.js"></script>
 </html>

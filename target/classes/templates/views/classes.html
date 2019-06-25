@@ -37,11 +37,12 @@
                                 class="email-label-work" ></span>Nova turma</a></li>
                         <li ng-show="userON.type == 'PROFESSOR' || userON.type == 'ADMIN'" class="pure-menu-item"><a class="pure-menu-link" href="/cadastro"><span
                                 class="email-label-travel"></span>Cadastrar</a></li>
-
                         <li class="pure-menu-heading">Jogos</li>
 
-                        <li class="pure-menu-item"><a class="pure-menu-link" href="views/operacionar/categorias.html"><span
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="views/operacionar/inicio.html"><span
                                 class="email-label-personal"></span>Operacionar</a></li>
+                        <li class="pure-menu-item"><a class="pure-menu-link" href="/logout"><span
+                                class="email-label-travel"></span>Sair</a></li>
                     </ul>
                 </div>
             </div>
@@ -57,8 +58,7 @@
 
                             <div>
                                 <strong class="d-inline-block mb-2 text-primary">{{aClass.professor.name}}</strong>
-                                <img align="right" alt="Tilo Mitra&#x27;s avatar" class="email-avatar" height="64"
-                                     src="images/common/tilo-avatar.png" width="64"/>
+
                             </div>
 
                             <h3 class="mb-0">{{aClass.name}}</h3>

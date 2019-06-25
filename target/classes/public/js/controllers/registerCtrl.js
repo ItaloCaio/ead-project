@@ -5,7 +5,6 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
 
     urlCadastro = 'http://localhost:8080/user';
     urlUser = 'http://localhost:8080/user/on';
-    $scope.userON = null;
 
     $scope.users = ['ALUNO', 'PROFESSOR', 'TUTOR'];
 
@@ -24,15 +23,17 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
     };
 
     $scope.getUser = function () {
-        console.log("retornar usuário");
+
         $http.get(urlUser).then(successCallback, errorCallback);
 
         function successCallback(response) {
             $scope.userON = response.data;
+            console.log("retornar usuário", $scope.userON.name );
         }
 
         function errorCallback(error) {
             alert("erro no get");
+            $scope.userON = undefined;
         }
     };
 
@@ -47,28 +48,31 @@ angular.module("appCadastro").controller("appCadastroCtrl", function ($scope, $h
 
 
     $scope.salvar = function (user) {
-        if (user.type == 'Aluno') {
-            user.type = user.type.toUpperCase();
-            $http.post(urlCadastro, user).then(function (response) {
-                console.log("salvou", user);
-                delete $scope.user;
-            });
-        } else if (user.type == 'Professor') {
-            console.log('O tipo do usuário é Professor');
-        } else if (user.type == 'Tutor') {
-            console.log('O tipo do usuário é Tutor ');
+
+        user.type = user.type.toUpperCase();
+        $http.post(urlCadastro, user).then(successCallback, errorCallback);
+
+        function successCallback(response) {
+            console.log("salvou", user);
+            delete $scope.user;
+            $scope.userSucess = true;
+            setTimeout(function () {
+
+
+                window.location.href = "/";
+
+            }, 1000);
         }
-        /*
-             $http.post(urlCadastro, usuario).then(function (response){
-                console.log("salvou");
-                 delete $scope.usuario;
-                    listarUsuarios();
-             });
-             */
-    }
+
+        function errorCallback(error) {
+            alert("erro no get");
+        }
+
+    };
 
     //$scope.listarUsuarios();
 
     $scope.getUser();
+    console.log($scope.userON);
 
 });
